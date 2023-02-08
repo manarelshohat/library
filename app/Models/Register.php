@@ -11,9 +11,9 @@ class Register extends Model
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'code',
         'phone',
-        'age',
+        'birtday',
         'gender',
         'address'
     ];

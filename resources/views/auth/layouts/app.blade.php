@@ -23,13 +23,13 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
-        @include('auth.layouts.header')
+        {{-- @include('layouts.header') --}}
 
-        @include('auth.layouts.sidebar')
+        {{-- @include('layouts.sidebar') --}}
 
         @yield('content')
 
-        @include('auth.layouts.footer')
+        {{-- @include('layouts.footer') --}}
 
     </div>
 </body>

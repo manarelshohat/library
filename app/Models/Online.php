@@ -10,9 +10,10 @@ class Online extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'img',
-        'category_id',
-        'author_id'
+        'image',
+        'description',
+        'author_name',
+        'category_name'
     ];
     protected $table = 'online';
 
