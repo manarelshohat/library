@@ -2,8 +2,6 @@
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">
 
-        {{-- <section class="content"> --}}
-        {{-- <div class="container-fluid"> --}}
         <div class="row">
 
             <div class="col-md-6">
@@ -19,7 +17,8 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputName">Full Name</label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
+                                    id="exampleInputName" placeholder="Enter name">
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -28,7 +27,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputImage">Image</label>
-                                <input type="file" class="form-control" id="exampleInputImage" placeholder="Image">
+                                <input type="file" name="image" value="{{ old('image') }}" class="form-control"
+                                    id="exampleInputImage" placeholder="Image">
                                 @error('image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -36,7 +36,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputBrief">Brief</label>
-                                <input type="text" class="form-control" id="exampleInputBrief" placeholder="Brief">
+                                <input type="text" name="brief" value="{{ old('brief') }}" class="form-control"
+                                    id="exampleInputBrief" placeholder="Brief">
                                 @error('brief')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -57,6 +58,5 @@
             </div>
 
         </div>
-        {{-- </section> --}}
-    @endsection
-</div>
+    </div>
+@endsection

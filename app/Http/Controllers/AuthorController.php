@@ -51,7 +51,7 @@ class AuthorController extends Controller
     public function edit($id)
     {
         $author = Author::find($id);
-        return redirect('author.edit', compact("authors"));
+        return view('author.edit', compact("author"));
     }
 
     public function  update(Request $request, $id)
