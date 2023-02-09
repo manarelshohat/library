@@ -19,7 +19,8 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputName">Name</label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
+                                    id="exampleInputName" placeholder="Enter name">
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -28,7 +29,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputCode">Code</label>
-                                <input type="text" class="form-control" id="exampleInputCode" placeholder="Enter Code">
+                                <input type="integer" name="code" value="{{ old('code') }}"class="form-control"
+                                    id="exampleInputCode" placeholder="Enter Code">
                                 @error('code')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -37,7 +39,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputImage">Image</label>
-                                <input type="text" class="form-control" id="exampleInputImage">
+                                <input type="text" name="image" value="{{ old('image') }}" class="form-control"
+                                    id="exampleInputImage">
                                 @error('image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -46,7 +49,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputName">Author Name</label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
+                                    id="exampleInputName" placeholder="Enter name">
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -55,7 +59,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputName">Category Name</label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Enter name">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
+                                    id="exampleInputName" placeholder="Enter name">
                                 @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -64,8 +69,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputDescription">Description</label>
-                                <input type="text" class="form-control" id="exampleInputName"
-                                    placeholder="Enter description">
+                                <input type="text" name="description" value="{{ old('description') }}"
+                                    class="form-control" id="exampleInputDescription" placeholder="Enter description">
                                 @error('description')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -74,7 +79,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputPrice">Price</label>
-                                <input type="text" class="form-control" id="exampleInputPrice" placeholder="Enter Price">
+                                <input type="text" name="price" value="{{ old('price') }}" class="form-control"
+                                    id="exampleInputPrice" placeholder="Enter Price">
                                 @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -83,11 +89,14 @@
 
                             <div class="form-group">
                                 <label for="exampleInputRate">Rate</label>
-                                <input type="text" class="form-control" id="exampleInputRate" placeholder="Enter Rate">
+                                <input type="text" name="rate" class="form-control" id="exampleInputRate"
+                                    placeholder="Enter Rate">
                                 @error('rate')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+
+
                             <div class="form-group">
                                 <label for="exampleInputStatus">Status</label>
                                 <input type="text" class="form-control" id="exampleInputStatus"

@@ -5,11 +5,13 @@
 
         <section class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="row mb-2 justify-content-around">
                     <div class="col-sm-6">
-                        <h1>Books</h1>
                     </div>
-
+                    <div class="col-sm-2 ">
+                        <a href="{{ route('books.create') }}" class="btn btn-block btn-outline-success btn-lg">Add
+                            Book </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -60,7 +62,7 @@
                                                     </form>
                                                 </td>
                                                 <td><a href="{{ route('books.edit', $book->id) }}"
-                                                        class="btn btn-primary">Edit</td>
+                                                        class="btn btn-block btn-outline-info btn-lg">Edit</td>
                                             </tr>
                                         @endforeach
                                     <tbody>

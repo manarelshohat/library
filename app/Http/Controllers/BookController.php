@@ -58,8 +58,8 @@ class BookController extends Controller
 
     public function edit($id)
     {
-        $books = Book::find($id);
-        return redirect('book.edit', compact("books"));
+        $book = Book::find($id);
+        return view('book.edit', compact("book"));
     }
 
     public function  update(Request $request, $id)
