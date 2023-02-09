@@ -2,8 +2,6 @@
  @section('content')
      <div class="content-wrapper" style="min-height: 1345.31px;">
 
-         {{-- <section class="content"> --}}
-         {{-- <div class="container-fluid"> --}}
          <div class="row">
 
              <div class="col-md-12">
@@ -33,7 +31,8 @@
                              <div class="card-body">
                                  <div class="form-group">
                                      <label for="exampleInputEmail1">Email address</label>
-                                     <input type="email" class="form-control" id="exampleInputEmail1"
+                                     <input type="email" class="form-control"
+                                         value="{{ old('email', $register->email) }} id="exampleInputEmail1"
                                          placeholder="Enter email">
                                      @error('email')
                                          <div class="alert alert-danger">{{ $message }}</div>
@@ -45,19 +44,19 @@
                                  <div class="card-body">
                                      <div class="form-group">
                                          <label for="exampleInputPhone">Phone</label>
-                                         <input type="string" class="form-control" id="exampleInputPhone"
+                                         <input type="string" class="form-control"
+                                             value="{{ old('phone', $register->phone) }} id="exampleInputPhone"
                                              placeholder="Enter phone">
                                          @error('phone')
                                              <div class="alert alert-danger">{{ $message }}</div>
                                          @enderror
                                      </div>
 
-
-
                                      <div class="card-body">
                                          <div class="form-group">
                                              <label for="exampleInputBirthday">Birthday</label>
-                                             <input type="date" class="form-control" id="exampleInputBirthday"
+                                             <input type="date" class="form-control"
+                                                 value="{{ old('birthday', $register->birthday) }} id="exampleInputBirthday"
                                                  placeholder="Enter birthday">
                                              @error('birthday')
                                                  <div class="alert alert-danger">{{ $message }}</div>
@@ -69,7 +68,8 @@
                                          <div class="card-body">
                                              <div class="form-group">
                                                  <label for="exampleInputAddress">Address</label>
-                                                 <input type="text" class="form-control" id="exampleInputAddress"
+                                                 <input type="text" class="form-control"
+                                                     value="{{ old('address', $register->address) }} id="exampleInputAddress"
                                                      placeholder="Enter address">
                                                  @error('address')
                                                      <div class="alert alert-danger">{{ $message }}</div>
@@ -80,7 +80,8 @@
 
                                              <div class="form-group">
                                                  <label for="exampleInputCode">Code</label>
-                                                 <input type="integer" class="form-control" id="exampleInputCode"
+                                                 <input type="integer" class="form-control"
+                                                     value="{{ old('code', $register->code) }} id="exampleInputCode"
                                                      placeholder="Code">
                                                  @error('code')
                                                      <div class="alert alert-danger">{{ $message }}</div>

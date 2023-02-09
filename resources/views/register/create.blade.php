@@ -2,8 +2,6 @@
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">
 
-        {{-- <section class="content"> --}}
-        {{-- <div class="container-fluid"> --}}
         <div class="row">
 
             <div class="col-md-12">
@@ -37,12 +35,10 @@
                                 @enderror
                             </div>
 
-
-
                             <div class="form-group">
                                 <label for="exampleInputPhone">Phone</label>
-                                <input type="string" name="phone" class="form-control" id="exampleInputPhone"
-                                    placeholder="Enter phone">
+                                <input type="string" name="phone" value="{{ old('phone') }}" class="form-control"
+                                    id="exampleInputPhone" placeholder="Enter phone">
                                 @error('phone')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -51,8 +47,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputBirthday">Birthday</label>
-                                <input type="date" name="birthday" class="form-control" id="exampleInputBirthday"
-                                    placeholder="Enter birthday">
+                                <input type="date" name="birthday" value="{{ old('birhday') }}"class="form-control"
+                                    id="exampleInputBirthday" placeholder="Enter birthday">
                                 @error('birthday')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -62,8 +58,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputAddress">Address</label>
-                                <input type="text" name="address" class="form-control" id="exampleInputAddress"
-                                    placeholder="Enter address">
+                                <input type="text" name="address" value="{{ old('address') }}"class="form-control"
+                                    id="exampleInputAddress" placeholder="Enter address">
                                 @error('address')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -73,8 +69,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputCode">Code</label>
-                                <input type="integer" name="code" class="form-control" id="exampleInputCode"
-                                    placeholder="Code">
+                                <input type="integer" name="code" value="{{ old('code') }}" class="form-control"
+                                    id="exampleInputCode" placeholder="Code">
                                 @error('code')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -105,6 +101,5 @@
             </div>
 
         </div>
-        {{-- </section> --}}
     @endsection
 </div>

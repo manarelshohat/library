@@ -46,32 +46,34 @@
                             <a href="{{ route('books.index') }}"
                                 class="nav-link @if (Route::currentRouteName() == 'books.index') active @endif">
                                 <i class="far fa-books nav-icon"></i>
-                                {{-- <i class="far fa-book-alt"></i> --}}
                                 <i class="fal fa-books"></i>
                                 <p>Books </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('registers.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="{{ route('registers.index') }}"
+                                class="nav-link
+                                @if (Route::currentRouteName() == 'registers.index') active @endif">
+                                <i class="far fa-registers nav-icon"></i>
                                 <p>Registers </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('authors.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="{{ route('authors.index') }}"
+                                class="nav-link  @if (Route::currentRouteName() == 'authors.index') active @endif">
+                                <i class="far fa-authors nav-icon"></i>
                                 <p>Authors </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Borrowed Books</p>
                             </a>
                         <li class="nav-item">
-                            <a href="{{ route('onlines.index') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                {{-- <i class=" nav-icon  fas fa-router "></i> --}}
+                            <a href="{{ route('onlines.index') }}"
+                                class="nav-link  @if (Route::currentRouteName() == 'onlines.index') active @endif">
+                                <i class="far fa-onlines nav-icon"></i>
                                 <p>Online Books</p>
                             </a>
                         </li>

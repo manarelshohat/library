@@ -12,7 +12,7 @@ class RegisterController extends Controller
     public function index()
     {
 
-        $registers = Register::simplePaginate(1);
+        $registers = Register::simplePaginate(5);
         return view('register.index', compact('registers'));
     }
     public function create()
@@ -22,7 +22,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:10',
+            'name' => 'required|max:40',
             'email' => 'required|unique:registers',
             'code' => 'required|unique:registers',
             'phone' => 'required|unique:registers|max:11',
@@ -69,7 +69,7 @@ class RegisterController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:10',
+            'name' => 'required|max:40',
             'email' => 'required|unique:registers',
             'code' => 'required|unique:registers',
             'phone' => 'required|unique:registers|max:11',
