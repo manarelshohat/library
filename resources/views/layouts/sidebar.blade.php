@@ -38,8 +38,71 @@
                             <a href="{{ route('categories.index') }}"
                                 class="nav-link @if (Route::currentRouteName() == 'categories.index') active @endif">
                                 <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>Books Cartegories</p>
+                                <p>Books Cartegories
+                                    <i class="right fas fa-angle-left"></i>
+
+                                </p>
+
                             </a>
+
+                            <ul class="nav nav-treeview" style="display: block;">
+                                <li class="nav-item">
+                                    <a href="pages/forms/general.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Classics</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Crime</p>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Fantasy</p>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Romance</p>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Historical fiction</p>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Science fiction</p>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Horror</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+
 
                         </li>
                         <li class="nav-item">

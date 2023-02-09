@@ -20,7 +20,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:10',
+            'name' => 'required|max:30',
             'books_num' => 'required'
 
         ]);
@@ -48,13 +48,13 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return redirect('category.edit', compact("category"));
+        return view('category.edit', compact("category"));
     }
 
     public function  update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:10',
+            'name' => 'required|max:30',
             'books_num' => 'required'
 
 
