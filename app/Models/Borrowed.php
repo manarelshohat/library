@@ -9,10 +9,9 @@ class Borrowed extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'book_id',
         'register_id',
-        'issue_date',
+        'book_id',
+        'borrow_date',
         'return_date'
     ];
     protected $table = 'borrowed';
