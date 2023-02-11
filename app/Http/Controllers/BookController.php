@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
@@ -15,18 +18,21 @@ class BookController extends Controller
     }
     public function create()
     {
-        return view("book.create");
+        $categories = Category::all();
+        $authors = Author::all();
+        return view("book.create", compact("categories", "authors"));
     }
     public function store(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:30',
-            'code' => 'required|max:5',
-            'author_name' => 'required',
-            'category_name' => 'required',
+            'name' => 'required|unique:books|max:30',
+            'img' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            'author_id' => 'required',
+            'category_id' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'rate' => 'required|integer|between:1,5'
         ]);
 
         if ($validator->fails()) {
@@ -35,19 +41,29 @@ class BookController extends Controller
                 ->withInput();
         }
 
+        $imageName = time() . '-' . $request->name . '.' .
+            $request->img->extension();
+        $request->img->move(public_path('img'), $imageName);
+
+
+
         $book = new Book();
         $book->name = $request->input('name');
-        $book->code = $request->input('code');
-        $book->image = $request->input('image');
-        $book->author_name = $request->input('author_name');
-        $book->category_name = $request->input('category_name');
+        // $book->img = $request->input('img');
+        $book->img = $imageName;
+        $book->author_id = $request->input('author_id');
+        $book->category_id = $request->input('category_id');
         $book->description = $request->input('description');
         $book->price = $request->input('price');
         $book->rate = $request->input('rate');
-        $book->status = $request->input('status');
+        $book->status = "avilable";
+
+
 
         $book->save();
         return redirect("books");
+        // return back()->with('success', 'Image uploaded Successfully!')
+        //     ->with('image', $imageName);
     }
 
     public function delete($id)
@@ -66,9 +82,8 @@ class BookController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:30',
-            'code' => 'required|max:5',
-            'author_name' => 'required',
-            'category_name' => 'required',
+            'author_id' => 'required',
+            'category_id' => 'required',
             'description' => 'required',
             'price' => 'required',
 
@@ -76,9 +91,8 @@ class BookController extends Controller
 
         $book = new Book([
             'name' => $request->get('name'),
-            'code' => $request->input('code'),
-            'author_name' => $request->input('author_name'),
-            'category_name' => $request->input('category_name'),
+            'author_id' => $request->input('author_id'),
+            'category_id' => $request->input('category_id'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'rate' => $request->input('rate'),

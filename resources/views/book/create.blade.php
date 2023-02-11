@@ -2,11 +2,9 @@
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">
 
-        {{-- <section class="content"> --}}
-        {{-- <div class="container-fluid"> --}}
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-12">
 
                 <div class="card card-primary">
                     <div class="card-header">
@@ -28,40 +26,49 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputCode">Code</label>
-                                <input type="integer" name="code" value="{{ old('code') }}"class="form-control"
-                                    id="exampleInputCode" placeholder="Enter Code">
-                                @error('code')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-
-                            <div class="form-group">
                                 <label for="exampleInputImage">Image</label>
-                                <input type="text" name="image" value="{{ old('image') }}" class="form-control"
+                                <input type="file" name="img" value="{{ old('img') }}" class="form-control"
                                     id="exampleInputImage">
-                                @error('image')
+                                @error('img')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
 
                             <div class="form-group">
-                                <label for="exampleInputName">Author Name</label>
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                    id="exampleInputName" placeholder="Enter name">
-                                @error('name')
+                                <label for="exampleInputauthor_id">Author Name</label>
+
+                                <select name="author_id" id="author-dropdown" class="form-control">
+                                    <option value="">-- Select Author --</option>
+                                    @foreach ($authors as $author)
+                                        <option value="{{ $author->id }}">
+                                            {{ $author->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('author_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
 
                             <div class="form-group">
-                                <label for="exampleInputName">Category Name</label>
-                                <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                    id="exampleInputName" placeholder="Enter name">
-                                @error('name')
+                                <label for="exampleInputCategory_id">Category Name</label>
+
+
+                                <select name="category_id" id="category-dropdown" class="form-control">
+                                    <option value="">-- Select Category --</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+
+
+
+                                @error('category_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -97,16 +104,6 @@
                             </div>
 
 
-                            <div class="form-group">
-                                <label for="exampleInputStatus">Status</label>
-                                <input type="text" class="form-control" id="exampleInputStatus"
-                                    placeholder="Enter Status">
-                                @error('status')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-
 
 
                             <div class="card-footer">
@@ -121,6 +118,4 @@
             </div>
 
         </div>
-        {{-- </section> --}}
     @endsection
-</div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\OnlineController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BorrowedController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +52,16 @@ Route::prefix('categories')->group(function () {
     Route::delete('/delete/{id}', [CategoryController::class, "delete"])->name('categories.delete');
     Route::get('/edit/{id}', [CategoryController::class, "edit"])->name('categories.edit');
     Route::put('{id}', [CategoryController::class, "update"])->name('categories.update');
+})->middleware('auth');
+
+
+Route::prefix('borrow')->group(function () {
+    Route::get('/create', [BorrowedController::class, "create"])->name('borrows.create');
+    Route::get('', [BorrowedController::class, "index"])->name('borrows.index');
+    Route::post('/store', [BorrowedController::class, "store"])->name('borrows.store');
+    Route::delete('/delete/{id}', [BorrowedController::class, "delete"])->name('borrows.delete');
+    Route::get('/edit/{id}', [BorrowedController::class, "edit"])->name('borrows.edit');
+    Route::put('{id}', [BorrowedController::class, "update"])->name('borrows.update');
 })->middleware('auth');
 
 

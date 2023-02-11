@@ -28,15 +28,6 @@
                             </div>
 
 
-                            <div class="form-group">
-                                <label for="exampleInputCode">Code</label>
-                                <input type="text" name="code" value="{{ old('code', $book->code) }}"
-                                    class="form-control" id="exampleInputCode" placeholder="Enter Code">
-                                @error('code')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
 
                             <div class="form-group">
                                 <label for="exampleInputImage">Image</label>
@@ -49,20 +40,21 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputName">Author Name</label>
-                                <input type="text" name="name" value="{{ old('name', $book->name) }}"
-                                    class="form-control" id="exampleInputName" placeholder="Enter name">
-                                @error('name')
+                                <label for="exampleInputAuthor_id">Author Id</label>
+                                <input type="integer" name="author_id" value="{{ old('author_id', $book->author_id) }}"
+                                    class="form-control" id="exampleInputauthor_id" placeholder="Enter author_id">
+                                @error('author_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
 
                             <div class="form-group">
-                                <label for="exampleInputName">Category Name</label>
-                                <input type="text" name="name" value="{{ old('name', $book->name) }}"
-                                    class="form-control" id="exampleInputName" placeholder="Enter name">
-                                @error('name')
+                                <label for="exampleInputCategory_id">Category Id</label>
+                                <input type="integer" name="category_id"
+                                    value="{{ old('category_id', $book->category_id) }}" class="form-control"
+                                    id="exampleInputcategory_id" placeholder="Enter category_id">
+                                @error('category_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
