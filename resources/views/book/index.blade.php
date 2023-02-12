@@ -30,11 +30,12 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Image</th>
-                                        <th scope="col">Author Id</th>
-                                        <th scope="col">Category Id</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">Category</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Rate</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Delete</th>
                                         <th scope="col">Edit</th>
                                     </thead>
@@ -47,11 +48,12 @@
                                                         width="50%" height="50%"></td>
 
 
-                                                <td>{{ $book->author_id }}</td>
-                                                <td>{{ $book->category_id }}</td>
+                                                <td>{{ $book->author->name }}</td>
+                                                <td>{{ $book->category->name }}</td>
                                                 <td>{{ $book->description }}</td>
                                                 <td>{{ $book->price }}</td>
                                                 <td>{{ $book->rate }}</td>
+                                                <td>{{ $book->status }}</td>
                                                 <td>
                                                     <form action="{{ route('books.delete', $book->id) }}"method="POST">
                                                         {{ csrf_field() }}

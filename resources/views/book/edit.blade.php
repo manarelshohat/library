@@ -30,30 +30,42 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputImage">Image</label>
-                                <input type="text" name="image"
-                                    value="{{ old('image', $book->image) }}"class="form-control" id="exampleInputImage">
-                                @error('image')
+                                <label for="exampleInputImg">Img</label>
+                                <input type="file" name="img" class="form-control" id="exampleInputImg">
+                                <img src="{{ asset('img/' . $book->img) }}" alt="" width="50%" height="50%">
+                                @error('img')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
 
                             <div class="form-group">
-                                <label for="exampleInputAuthor_id">Author Id</label>
-                                <input type="integer" name="author_id" value="{{ old('author_id', $book->author_id) }}"
-                                    class="form-control" id="exampleInputauthor_id" placeholder="Enter author_id">
+                                <label for="exampleInputAuthor_id">Author </label>
+                                <select name="author_id" id="author-dropdown" class="form-control">
+                                    <option value="">-- Select Author --</option>
+                                    @foreach ($authors as $author)
+                                        <option value="{{ $author->id }}"
+                                            {{ $author->id == old('author->id', $book->author->id) ? 'selected' : '' }}>
+                                            {{ $author->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 @error('author_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
 
-
                             <div class="form-group">
-                                <label for="exampleInputCategory_id">Category Id</label>
-                                <input type="integer" name="category_id"
-                                    value="{{ old('category_id', $book->category_id) }}" class="form-control"
-                                    id="exampleInputcategory_id" placeholder="Enter category_id">
+                                <label for="exampleInputCategory_id">Category </label>
+                                <select name="category_id" id="category-dropdown" class="form-control">
+                                    <option value="">-- Select Category --</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ $category->id == old('category_id', $book->category_id) ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 @error('category_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

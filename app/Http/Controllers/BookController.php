@@ -49,7 +49,6 @@ class BookController extends Controller
 
         $book = new Book();
         $book->name = $request->input('name');
-        // $book->img = $request->input('img');
         $book->img = $imageName;
         $book->author_id = $request->input('author_id');
         $book->category_id = $request->input('category_id');
@@ -62,8 +61,6 @@ class BookController extends Controller
 
         $book->save();
         return redirect("books");
-        // return back()->with('success', 'Image uploaded Successfully!')
-        //     ->with('image', $imageName);
     }
 
     public function delete($id)
@@ -75,31 +72,40 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = Book::find($id);
-        return view('book.edit', compact("book"));
+        $categories = Category::all();
+        $authors = Author::all();
+        return view('book.edit', compact("book", "categories", "authors"));
     }
 
     public function  update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:30',
+            'name' => 'required|unique:books|max:30',
+            'img' => 'required|image|mimes:png,jpg,jpeg|max:2048',
             'author_id' => 'required',
             'category_id' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'rate' => 'required|integer|between:1,5'
 
         ]);
 
-        $book = new Book([
-            'name' => $request->get('name'),
-            'author_id' => $request->input('author_id'),
-            'category_id' => $request->input('category_id'),
-            'description' => $request->input('description'),
-            'price' => $request->input('price'),
-            'rate' => $request->input('rate'),
-            'status' => $request->input('status'),
-        ]);
+        $book = Book::find($id);
 
-        $book->save();
+        $imageName = time() . '-' . $request->name . '.' .
+            $request->img->extension();
+        $request->img->move(public_path('img'), $imageName);
+
+        $book->name = $request->input('name');
+        $book->img = $imageName;
+        $book->author_id = $request->input('author_id');
+        $book->category_id = $request->input('category_id');
+        $book->description = $request->input('description');
+        $book->price = $request->input('price');
+        $book->rate = $request->input('rate');
+        $book->status = "avilable";
+
+        $book->update();
         return redirect("books");
     }
 }

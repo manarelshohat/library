@@ -36,12 +36,13 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputauthor_id">Author Name</label>
+                                <label for="exampleInputauthor_id">Author</label>
 
                                 <select name="author_id" id="author-dropdown" class="form-control">
                                     <option value="">-- Select Author --</option>
                                     @foreach ($authors as $author)
-                                        <option value="{{ $author->id }}">
+                                        <option @if ($author->id == old('author_id')) @selected(true) @endif
+                                            value="{{ $author->id }}">
                                             {{ $author->name }}
                                         </option>
                                     @endforeach
@@ -53,21 +54,18 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputCategory_id">Category Name</label>
+                                <label for="exampleInputCategory_id">Category </label>
 
 
                                 <select name="category_id" id="category-dropdown" class="form-control">
                                     <option value="">-- Select Category --</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">
+                                        <option @if ($category->id == old('category_id')) @selected(true) @endif
+                                            value="{{ $category->id }}">
                                             {{ $category->name }}
                                         </option>
                                     @endforeach
                                 </select>
-
-
-
-
                                 @error('category_id')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

@@ -16,6 +16,7 @@ class Book extends Model
         'description',
         'price',
         'rate',
+        'status'
     ];
     protected $table = 'books';
 
