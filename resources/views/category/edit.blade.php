@@ -28,9 +28,9 @@
 
                             <div class="form-group">
                                 <label for="exampleInputNum">Books' Number</label>
-                                <input type="integer" name="books_num" value="{{ old('books_num', $category->num) }}"
+                                <input type="integer" name="books_num" value="{{ old('books_num', $category->books_num) }}"
                                     class="form-control" id="exampleInputNum" placeholder="Book_Num">
-                                @error('num')
+                                @error('books_num')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>

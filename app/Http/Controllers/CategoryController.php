@@ -60,12 +60,12 @@ class CategoryController extends Controller
 
         ]);
 
-        $category = new Category([
-            'name' => $request->get('name'),
-            'books_num' => $request->input('books_num')
-        ]);
+        $category = Category::find($id);
+        $category->name = $request->input('name');
+        $category->books_num = $request->input('books_num');
 
-        $category->save();
+        $category->update();
+
         return redirect("categories");
     }
 }
